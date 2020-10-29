@@ -3,13 +3,17 @@ var generateBtn = document.querySelector("#generate");
 
 var numberNumber = Number(prompt("For a strong password, input the the numbers of number you want in the password: "));
 var specialKeyNumber = Number(prompt("How many special keys do you want in the password?"));
-// var lowercaseNumber = Number(prompt("How many lower case characters do you want in the password?"));
-// var lowercaseNumber = Number(prompt("How many UPPER case characters do you want in the password: "));
+var lowerCaseNumber = Number(prompt("How many lower case characters do you want in the password?"));
+var upperCaseNumber = Number(prompt("How many UPPER case characters do you want in the password: "));
 
 var numberPart = Math.floor(Math.random()*(Math.pow(10,numberNumber)));
 console.log(numberPart);
 
 var specialKeyString = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"; // length = 31
+var lowerCaseString = "abcdefghijklmnopqrstuvwxyz";
+var upperCaseString = lowerCaseString.toLocaleUpperCase();
+console.log(upperCaseString);
+
 console.log(specialKeyString);
 console.log(specialKeyString.length);
 
@@ -37,15 +41,16 @@ function eachPart (numberOfEachPart,stringInput) {
   console.log(Part);
   return Part;
 };
-var  a = eachPart (specialKeyNumber, specialKeyString);
+var specialKeyPart = eachPart (specialKeyNumber, specialKeyString);
+var lowerCasePart = eachPart (lowerCaseNumber, lowerCaseString);
+var upperCasepart = eachPart (upperCaseNumber, upperCaseString);
+
+console.log(lowerCasePart);
+console.log(upperCasepart);
 
 
 
 
-
-
-
-console.log(a);
 
 
 
