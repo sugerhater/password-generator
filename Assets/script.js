@@ -6,16 +6,16 @@ var specialKeyNumber = Number(prompt("How many special keys do you want in the p
 var lowerCaseNumber = Number(prompt("How many lower case characters do you want in the password?"));
 var upperCaseNumber = Number(prompt("How many UPPER case characters do you want in the password: "));
 
-var numberPart = Math.floor(Math.random()*(Math.pow(10,numberNumber)));
-console.log(numberPart);
-
 var specialKeyString = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"; // length = 31
 var lowerCaseString = "abcdefghijklmnopqrstuvwxyz";
 var upperCaseString = lowerCaseString.toLocaleUpperCase();
 console.log(upperCaseString);
 
-console.log(specialKeyString);
-console.log(specialKeyString.length);
+var numberPart = Math.floor(Math.random()*(Math.pow(10,numberNumber)));
+console.log(numberPart);
+
+// console.log(specialKeyString);
+// console.log(specialKeyString.length);
 
 // function specialKey () {
 //     specialKeyPart = " ";
@@ -31,7 +31,7 @@ console.log(specialKeyString.length);
 // var  a = specialKey();
 
 function eachPart (numberOfEachPart,stringInput) {
-  Part = " ";
+  Part = "";
   // specialKeyTrans = [];
   for (var i =0; i< numberOfEachPart; i++) {
       trans= Math.floor(Math.random()*stringInput.length);
@@ -43,16 +43,27 @@ function eachPart (numberOfEachPart,stringInput) {
 };
 var specialKeyPart = eachPart (specialKeyNumber, specialKeyString);
 var lowerCasePart = eachPart (lowerCaseNumber, lowerCaseString);
-var upperCasepart = eachPart (upperCaseNumber, upperCaseString);
+var upperCasePart = eachPart (upperCaseNumber, upperCaseString);
 
 console.log(lowerCasePart);
-console.log(upperCasepart);
+console.log(upperCasePart);
 
+var totalNumber =numberNumber + specialKeyNumber + lowerCaseNumber + upperCaseNumber;
+// console.log(totalNumber);
+// var totalNumber =totalNumber.trim();
 
+function generatePassword() {
+  
+  if (totalNumber >= 8 && totalNumber<152 ) {
+    password = (upperCasePart + lowerCasePart + specialKeyPart + numberPart).trim();
+    console.log(password);
+    console.log(upperCasePart);
+    return password
+  }
+  else { alert("Please put set a password that has at least 8 and less than 152 characters!")
 
-
-
-
+  }
+  };
 
 // console.log(specialKeyPart);
 // Write password to the #password input
