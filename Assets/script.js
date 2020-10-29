@@ -9,21 +9,41 @@ var specialKeyNumber = Number(prompt("How many special keys do you want in the p
 var numberPart = Math.floor(Math.random()*(Math.pow(10,numberNumber)));
 console.log(numberPart);
 
-var specialKeyString = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"; // length = 31
+var specialKeyString = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"; // length = 31
 console.log(specialKeyString);
+console.log(specialKeyString.length);
 
-function specialKey () {
-    specialKeyPart = " ";
-    // specialKeyTrans = [];
-    for (var i =0; i< specialKeyNumber; i++) {
-        specialKeyTrans= Math.floor(Math.random()*31);
-        specialKeyPart = specialKeyPart + specialKeyString[specialKeyTrans];
-        console.log(specialKeyPart);
-    }
-    console.log(specialKeyPart);
-    return specialKeyPart;
+// function specialKey () {
+//     specialKeyPart = " ";
+//     // specialKeyTrans = [];
+//     for (var i =0; i< specialKeyNumber; i++) {
+//         specialKeyTrans= Math.floor(Math.random()*31);
+//         specialKeyPart = specialKeyPart + specialKeyString[specialKeyTrans];
+//         console.log(specialKeyPart);
+//     }
+//     console.log(specialKeyPart);
+//     return specialKeyPart;
+// };
+// var  a = specialKey();
+
+function eachPart (numberOfEachPart,stringInput) {
+  Part = " ";
+  // specialKeyTrans = [];
+  for (var i =0; i< numberOfEachPart; i++) {
+      trans= Math.floor(Math.random()*stringInput.length);
+      Part = Part + stringInput[trans];
+      console.log(Part);
+  }
+  console.log(Part);
+  return Part;
 };
-var  a = specialKey();
+var  a = eachPart (specialKeyNumber, specialKeyString);
+
+
+
+
+
+
 
 console.log(a);
 
