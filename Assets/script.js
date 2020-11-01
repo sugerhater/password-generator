@@ -1,18 +1,19 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+// Get password information from user. 
 var numberNumber = Number(prompt("For a strong password, input the the numbers of number you want in the password: "));
 var specialKeyNumber = Number(prompt("How many special keys do you want in the password?"));
 var lowerCaseNumber = Number(prompt("How many lower case characters do you want in the password?"));
 var upperCaseNumber = Number(prompt("How many UPPER case characters do you want in the password: "));
-
+// Create strings for ecah part. 
 var specialKeyString = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"; // length = 31
 var lowerCaseString = "abcdefghijklmnopqrstuvwxyz";
 var upperCaseString = lowerCaseString.toLocaleUpperCase();
 console.log(upperCaseString);
 
 var numberPart = Math.floor(Math.random()*(Math.pow(10,numberNumber)));
-console.log(numberPart);
+console.log(numberPart);// debuging.
+
 
 // console.log(specialKeyString);
 // console.log(specialKeyString.length);
@@ -30,9 +31,10 @@ console.log(numberPart);
 // };
 // var  a = specialKey();
 
+
+// Writed a function only for specialkey, then changed into a function for all parts.
 function eachPart (numberOfEachPart,stringInput) {
   Part = "";
-  // specialKeyTrans = [];
   for (var i =0; i< numberOfEachPart; i++) {
       trans= Math.floor(Math.random()*stringInput.length);
       Part = Part + stringInput[trans];
@@ -41,12 +43,13 @@ function eachPart (numberOfEachPart,stringInput) {
   console.log(Part);
   return Part;
 };
+
 var specialKeyPart = eachPart (specialKeyNumber, specialKeyString);
 var lowerCasePart = eachPart (lowerCaseNumber, lowerCaseString);
 var upperCasePart = eachPart (upperCaseNumber, upperCaseString);
 
-console.log(lowerCasePart);
-console.log(upperCasePart);
+console.log(lowerCasePart);//debugging
+console.log(upperCasePart);//debugging
 
 var totalNumber =numberNumber + specialKeyNumber + lowerCaseNumber + upperCaseNumber;
 // console.log(totalNumber);
@@ -55,9 +58,8 @@ var totalNumber =numberNumber + specialKeyNumber + lowerCaseNumber + upperCaseNu
 function generatePassword() {
   
   if (totalNumber >= 8 && totalNumber<152 ) {
-    password = (upperCasePart + lowerCasePart + specialKeyPart + numberPart).trim();
-    console.log(password);
-    console.log(upperCasePart);
+    password = (upperCasePart + lowerCasePart + specialKeyPart + numberPart).trim(); // use trim to make sure no space inside. 
+    console.log(password);     //debuging
     return password
   }
   else { alert("Please put set a password that has at least 8 and less than 152 characters!")
@@ -65,7 +67,7 @@ function generatePassword() {
   }
   };
 
-// console.log(specialKeyPart);
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
